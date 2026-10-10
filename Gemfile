@@ -52,3 +52,7 @@ end
 gem "faker", "~> 3.8"
 
 gem "rspec-rails", "~> 8.0", groups: [:development, :test]
+
+
+
+gem "will_paginate", "~> 4.0"
