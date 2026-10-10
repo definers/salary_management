@@ -50,3 +50,5 @@ group :development, :test do
 end
 
 gem "faker", "~> 3.8"
+
+gem "rspec-rails", "~> 8.0", groups: [:development, :test]
