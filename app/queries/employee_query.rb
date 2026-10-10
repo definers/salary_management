@@ -42,4 +42,3 @@ class EmployeeQuery
     relation.paginate(page: page, per_page: per_page)
   end
 end
-app/controllers/api/v1/employees_controller.rb
