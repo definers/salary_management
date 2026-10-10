@@ -37,9 +37,8 @@ RSpec.describe Employee, type: :model do
   describe "scopes" do
     before do
       described_class.create!(valid_attributes)
-      described_class.create!(valid_attributes.merge(email: "jane@example.com", country: "UK", department: "HR"))
+      described_class.create!(valid_attributes.merge(first_name: "Jane", email: "jane@example.com", country: "UK", department: "HR"))
     end
-
     it ".search finds by first name" do
       expect(described_class.search("John").count).to eq(1)
     end
