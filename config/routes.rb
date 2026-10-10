@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :employees, only: [:index, :show, :update]
-      get 'dashboard/metrics', to: 'dashboard#metrics'
+      resources :employees, only: [ :index, :show, :update ]
+      get "dashboard/metrics", to: "dashboard#metrics"
     end
   end
 
