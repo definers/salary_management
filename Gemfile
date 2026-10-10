@@ -56,3 +56,5 @@ gem "rspec-rails", "~> 8.0", groups: [ :development, :test ]
 
 
 gem "will_paginate", "~> 4.0"
+
+gem "rack-cors", "~> 3.0"
