@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/v1/:path*',
-        // Use an environment variable for the backend URL
-        destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api/v1'}/:path*`,
+        // This points to localhost:3000 INSIDE the Codespaces container
+        destination: 'http://localhost:3000/api/v1/:path*',
       },
     ];
   },

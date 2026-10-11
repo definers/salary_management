@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Providers from "./providers"; // <--- Import the Providers component
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* suppressHydrationWarning prevents errors caused by browser extensions injecting attributes */}
-      <body className={inter.className} suppressHydrationWarning>
+      <body className={`${inter.className} bg-gray-50 text-gray-900`} suppressHydrationWarning>
         <Providers>
           {children}
         </Providers>
