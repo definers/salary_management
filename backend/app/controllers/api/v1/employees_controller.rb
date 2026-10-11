@@ -28,7 +28,29 @@ module Api
         end
       end
 
+      def create
+        result = EmployeeCreatorService.new(employee_params).call
+        if result.success?
+          render json: result.employee, status: :created
+        else
+          render json: { errors: result.errors }, status: :unprocessable_content
+        end
+      end
+
+      def destroy
+        employee = Employee.find(params[:id])
+        if employee.update(active: false)
+          render json: { message: "Employee archived successfully" }, status: :ok
+        else
+          render json: { errors: employee.errors.full_messages }, status: :unprocessable_content
+        end
+      end
+
       private
+
+      def employee_params
+        params.require(:employee).permit(:first_name, :last_name, :email, :country, :department, :role, :salary, :currency)
+      end
 
       def index_params
         params.permit(:search, :country, :department, :page, :per_page)

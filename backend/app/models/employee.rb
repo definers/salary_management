@@ -27,6 +27,7 @@ class Employee < ApplicationRecord
   }
   scope :by_country,    ->(country)    { where(country: country)    if country.present? }
   scope :by_department, ->(department) { where(department: department) if department.present? }
+  scope :active, -> { where(active: true) }
 
   private
 

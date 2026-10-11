@@ -6,13 +6,14 @@ class EmployeeQuery
   end
 
   def call(params = {})
-    @relation
-      .then { |r| filter_by_search(r, params[:search]) }
-      .then { |r| filter_by_country(r, params[:country]) }
-      .then { |r| filter_by_department(r, params[:department]) }
-      .then { |r| paginate(r, params[:page], params[:per_page]) }
+  @relation
+    .active
+    .search(params[:search])
+    .by_country(params[:country])
+    .by_department(params[:department])
+    .paginate(page: params[:page] || 1, per_page: params[:per_page] || 20)
   end
-
+  
   private
 
   def filter_by_search(relation, search)
